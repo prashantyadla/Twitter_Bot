@@ -1,0 +1,116 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "twitter bot",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "ReadLatestNTweetsForUserIntent",
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.Person",
+              "samples": [
+                "I want to hear tweets from {name}",
+                "I want to hear {name}  tweet",
+                "{name}"
+              ]
+            },
+            {
+              "name": "number",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "Read the most recent tweet from {name}",
+            "What is the {number} most recent tweets from {name} ",
+            "Read me the {number} latest tweets from {name}",
+            "What is the last {number} tweets from {name}",
+            "What is the most recent tweet from {name}",
+            "Read me the latest tweet from {name}",
+            "What is the latest tweet from {name}",
+            "What is {name} latest tweet"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "ReadLatestNTweetsForUserIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "name",
+              "type": "AMAZON.Person",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.1384347900016.2468982006",
+                "elicitation": "Elicit.Slot.941776072643.1463827224193"
+              }
+            },
+            {
+              "name": "number",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.941776072643.1463827224193",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Which twitter account are you interested in?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Whose tweet do you want to hear?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.1384347900016.2468982006",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "You said you want to hear tweets from {name} , right?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "14"
+}
